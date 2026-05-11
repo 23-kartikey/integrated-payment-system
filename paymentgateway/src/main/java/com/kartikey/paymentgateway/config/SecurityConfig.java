@@ -21,9 +21,15 @@ public class SecurityConfig {
             .requestMatchers(
                 "/admin/**"
             ).hasRole("ADMIN")
-            
             .anyRequest().authenticated()
-        );
+        
+            )
+            .formLogin(login->login
+                .loginPage("/login")
+                .permitAll()
+            )
+
+        ;
 
         return http.build();
     }
