@@ -10,14 +10,14 @@ import com.kartikey.paymentgateway.dto.RegisterRequest;
 import com.kartikey.paymentgateway.service.AuthService;
 
 @RestController
-public class AuthController {
+public class AuthController{
 
     private final AuthService authService;
 
     public AuthController(AuthService authService){
         this.authService=authService;
     }
-    
+
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest req){
         authService.loginUser(req);
